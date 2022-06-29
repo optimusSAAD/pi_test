@@ -104,10 +104,9 @@ namespace test_pi.cls
                     }
                     else
                     {
-                        prime = Temp / 2;
-                        for (int j = 2; j <= prime; j++)
+                        for (int j = 2; j <= Temp - 1; j++)
                         {
-                            if (Temp % j  == 0)
+                            if (Temp % j == 0)
                             {
                                 Temp++;
                             }
@@ -118,24 +117,27 @@ namespace test_pi.cls
                                 break;
                             }
                         }
-                    }                    
+                    }
+                    if (PK != "")
+                    {
+                        break;
+                    }
                 }
-                
                 strID = PK;
-
             }
             catch (Exception ex)
             {
                 throw (ex);
             }
         }
-        public void finalPrimaryKey(int length, int Key , out string PrimaryKey)
+        public void finalPrimaryKey(int length, int Key, out string PrimaryKey)
         {
             if (length == 1)
             {
                 PrimaryKey = "000000" + Key.ToString();
             }
-            else if(length == 2){
+            else if (length == 2)
+            {
                 PrimaryKey = "00000" + Key.ToString();
             }
             else if (length == 3)
@@ -156,7 +158,7 @@ namespace test_pi.cls
             }
             else
             {
-                PrimaryKey =  Key.ToString();
+                PrimaryKey = Key.ToString();
             }
         }
     }
